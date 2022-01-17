@@ -39,6 +39,7 @@
       </section>
       <section id="controls" v-else>
         <button @click="attackMonster">ATTACK</button>
+        <button @click="defendPlayer">DEFEND</button>
         <button :disabled="mayUseSpecialAttack" @click="specialAttackMonster">SPECIAL ATTACK</button>
         <button @click="healPlayer">HEAL</button>
         <button @click="runFromBattle">RUN</button>
@@ -56,7 +57,13 @@
               heals himself for
               <span class="log--heal">{{ logMessage.actionValue }}</span></span
             >
-            <span v-else>
+            
+            <span v-if="logMessage.actionType === 'defend'">
+              takes a defensive stance
+              <span class="log--defend">{{ logMessage.actionValue }}</span></span
+            >
+
+            <span v-if="logMessage.actionType === 'attack'">
               attacks and deals
               <span class="log--damage">{{ logMessage.actionValue }}</span>
             </span>

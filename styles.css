@@ -117,3 +117,7 @@ button:disabled {
 .log--heal {
   color: green;
 }
+
+.log--defend {
+  color: rgb(167, 161, 161);
+}
